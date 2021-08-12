@@ -1,0 +1,113 @@
+{
+	// Place your PhD thesis workspace snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"scope": "javascript,typescript",
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }	
+	//
+	//
+	// Figure Environment
+	"figure enivronment": {
+		"scope": "latex",
+		"prefix": [
+			// "figure",
+			"\\begin{figure}",
+		],
+		"body": [
+			"\\begin{figure}",
+			"\t\\centering",
+			"\t\\includegraphics[width=\\linewidth]{$0}",
+			"\t\\caption[]{${1:Caption}}\\label{fig:${2:my_label}}",
+			"\\end{figure}",
+		],
+		"description": "figure ...env"
+	},
+	// SubFigure Environment
+	"subfigure enivronment": {
+		"scope": "latex",
+		"prefix": [
+			// "figure",
+			"\\begin{subfigure}",
+		],
+		"body": [
+			"\\hspace*{\\fill}%", // for equally spaced figures - https://tex.stackexchange.com/questions/42968/reduction-of-space-between-two-sub-figures
+			"\\begin{subfigure}[b]{0.5\\textwidth}",
+			"\t\\centering",
+			"\t\\includegraphics[width=\\linewidth]{$0}",
+			"\t\\caption{${1:}}",
+			// "\t\\label{${2:fig:my_label}}",
+			"\\end{subfigure}\\hfill%",
+		],
+		"description": "subfigure ...env"
+	},
+	//Table Environment using booktabs features
+	"table enivronment": {
+		"scope": "latex",
+		"prefix": [
+			// "figure",
+			"\\begin{table}",
+		],
+		"body": [
+			"{\\renewcommand{\\arraystretch}{1}", //to set the spacing between rows
+			"\\begin{table}",
+			"\t\\small",
+			"\t\\centering",
+			"\t\\caption{${1:Caption}}\\label{tab:${2:my_label}}",
+			"\t\\begin{tabular}{${3:@{\\}cc@{\\}}}\\toprule",
+			"\t\t$0 &\t\\\\\\\\\\midrule",
+			"\t\t &\t\\\\\\",
+			"\t\t &\t\\\\\\\\\\bottomrule",
+			"\t\\end{tabular}",
+			"\\end{table}",
+			"}",
+		],
+		"description": "table ...env"
+	},
+	//List enviroment
+	"itemize enivronment": {
+		"scope": "latex",
+		"prefix": [
+			// "figure",
+			"\\begin{itemize}",
+		],
+		"body": [
+			"{", //to set the spacing between rows
+			"\\begin{itemize}[topsep=0pt, itemsep=2pt, parsep=2pt]",
+			"\t\\setstretch{1.2}",
+			"\t\\item ${1:text}",
+			"\t\\item ${2:text}$0",
+			"\\end{itemize}",
+			"}",
+		],
+		"description": "itemize ...env"
+	},
+	//Enumerate enviroment
+	"enumerate enivronment": {
+		"scope": "latex",
+		"prefix": [
+			// "figure",
+			"\\begin{enumerate}",
+		],
+		"body": [
+			"{", //to set the spacing between rows
+			"\\begin{enumerate}[topsep=0pt, itemsep=2pt, parsep=2pt]",
+			"\t\\setstretch{1.2}",
+			"\t\\item ${1:text}",
+			"\t\\item ${2:text}$0",
+			"\\end{enumerate}",
+			"}",
+		],
+		"description": "enumerate ...env"
+	}
+}
